@@ -1,0 +1,11 @@
+# OS
+.DS_Store
+
+# Python
+*.pyc
+*.pyo
+
+# Project
+/{{ project_name }}/settings_local.py
+/{{ project_name }}/public/static
+/{{ project_name }}/public/media

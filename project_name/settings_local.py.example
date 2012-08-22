@@ -1,0 +1,22 @@
+# Local settings for {{ project_name }} project.
+from settings import *
+
+DEBUG = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = ''
+
+if DEBUG:
+    # Show emails in the console during developement.
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
