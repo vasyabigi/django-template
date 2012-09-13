@@ -1,9 +1,8 @@
-# Local settings for {{ project_name }} project.
 DEBUG = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': '',
         'USER': '',
         'PASSWORD': '',
@@ -13,7 +12,7 @@ DATABASES = {
 }
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'v=wfqk6oj1&amp;%5w9b-un-r8r6xk#16d38*ob5052u8-j&amp;i-@+p6'
+SECRET_KEY = '{{ secret_key }}'
 
 ADMINS = (
     # ('', ''),
@@ -54,12 +53,6 @@ if DEBUG:
         'debug_toolbar.panels.sql.SQLDebugPanel',
         'debug_toolbar.panels.signals.SignalDebugPanel',
         'debug_toolbar.panels.logger.LoggingPanel',
-        # 'memcache_toolbar.panels.memcache.MemcachePanel',  # URL: https://github.com/ross/memcache-debug-panel
-        # 'debug_toolbar_mongo.panel.MongoDebugPanel',  # URL: https://github.com/hmarr/django-debug-toolbar-mongo
-        # 'debug_toolbar_htmltidy.panels.HTMLTidyDebugPanel',  # URL: https://github.com/joymax/django-dtpanel-htmltidy
-        # 'debug_toolbar_user_panel.panels.UserPanel',  # URL: https://github.com/playfire/django-debug-toolbar-user-panel
-        # 'sites_toolbar.panels.SitesDebugPanel',  # URL: https://github.com/elvard/django-sites-toolbar
-        # 'haystack_panel.panel.HaystackDebugPanel',  # URL: https://github.com/streeter/django-haystack-panel
     )
 
     DEBUG_TOOLBAR_CONFIG = {

@@ -1,5 +1,6 @@
 django
 south
 django-debug-toolbar
-werkzeug
 django-extensions
+werkzeug
+psycopg2
