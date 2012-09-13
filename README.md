@@ -1,1 +1,1 @@
-# {{ project_name }}
+# {{ project_name }} - DjangoStars project

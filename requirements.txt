@@ -1,2 +1,5 @@
-django>=1.4
+django
 south
+django-debug-toolbar
+werkzeug
+django-extensions

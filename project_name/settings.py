@@ -131,8 +131,12 @@ LOGGING = {
     }
 }
 
+LOCAL_INSTALLED_APPS = LOCAL_MIDDLEWARE_CLASSES = tuple()
 
 try:
     from settings_local import *
 except ImportError:
-    pass
+    print "LOCAL SETTINGS COULD NOT BE FOUND!"
+else:
+    INSTALLED_APPS += LOCAL_INSTALLED_APPS
+    MIDDLEWARE_CLASSES += LOCAL_MIDDLEWARE_CLASSES
