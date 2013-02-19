@@ -1,5 +1,4 @@
-django
-south
+-r common.txt
 django-debug-toolbar
 django-extensions
 werkzeug

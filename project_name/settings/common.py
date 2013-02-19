@@ -1,10 +1,10 @@
-import os.path
+from os.path import abspath, dirname, join
 import sys
 
-PROJECT_PATH = os.path.dirname(__file__)
-sys.path.append(os.path.join(PROJECT_PATH, 'apps'))
+PROJECT_PATH = dirname(dirname(abspath(__file__)))
+sys.path.append(join(PROJECT_PATH, 'apps'))
 
-PUBLIC_PATH = os.path.join(PROJECT_PATH, 'public')
+PUBLIC_PATH = join(PROJECT_PATH, 'public')
 
 DEBUG = False
 TEMPLATE_DEBUG = True
@@ -27,14 +27,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-MEDIA_ROOT = os.path.join(PUBLIC_PATH, 'media')
+MEDIA_ROOT = join(PUBLIC_PATH, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(PUBLIC_PATH, 'static')
+STATIC_ROOT = join(PUBLIC_PATH, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_PATH, 'static'),
+    join(PROJECT_PATH, 'static'),
 )
 
 STATICFILES_FINDERS = (
@@ -61,7 +61,7 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_PATH, 'templates'),
+    join(PROJECT_PATH, 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -75,7 +75,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 FIXTURE_DIRS = (
-    os.path.join(PROJECT_PATH, 'fixtures'),
+    join(PROJECT_PATH, 'fixtures'),
 )
 
 INSTALLED_APPS = (
@@ -107,7 +107,7 @@ LOGGING = {
         'default': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(PROJECT_PATH, 'logs', '{{ project_name }}.log'),
+            'filename': join(PROJECT_PATH, 'logs', '{{ project_name }}.log'),
             'maxBytes': 1024 * 1024 * 10,
             'backupCount': 50,
             'formatter': 'standard',
@@ -130,13 +130,3 @@ LOGGING = {
         },
     }
 }
-
-LOCAL_INSTALLED_APPS = LOCAL_MIDDLEWARE_CLASSES = tuple()
-
-try:
-    from settings_local import *
-except ImportError:
-    print "LOCAL SETTINGS COULD NOT BE FOUND!"
-else:
-    INSTALLED_APPS += LOCAL_INSTALLED_APPS
-    MIDDLEWARE_CLASSES += LOCAL_MIDDLEWARE_CLASSES

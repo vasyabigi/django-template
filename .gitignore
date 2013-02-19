@@ -5,8 +5,10 @@
 *.pyc
 *.pyo
 
+# SQLite3 database files:
+*.db
+
 # Project
-/{{ project_name }}/settings_local.py
 /{{ project_name }}/public/static
 /{{ project_name }}/public/media
 /{{ project_name }}/logs
