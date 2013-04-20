@@ -1,6 +1,6 @@
 from os.path import join, normpath
 
-from common import *
+from .common import *
 
 DEBUG = True
 

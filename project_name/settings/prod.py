@@ -1,3 +1,3 @@
-from common import *
+from .common import *
 
 # TODO: Write smth here

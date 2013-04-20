@@ -103,18 +103,25 @@ LOGGING = {
             'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
         },
     },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
     'handlers': {
         'default': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': join(PROJECT_PATH, 'logs', '{{ project_name }}.log'),
+            'filename': join(PROJECT_PATH, 'logs', 'vasyabigi.log'),
             'maxBytes': 1024 * 1024 * 10,
             'backupCount': 50,
             'formatter': 'standard',
         },
         'mail_admins': {
             'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler'
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html': True
         }
     },
     'loggers': {
@@ -123,7 +130,7 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True
         },
-    'django.request': {
+        'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': True,
