@@ -17,12 +17,12 @@ PROJECT_PREFIX = os.environ.get("PROJECT_PREFIX", "")
 
 """
 # Production {{ project_name }} settings:
-export DATABASE_ENGINE = ""
-export DATABASE_NAME = ""
-export DATABASE_USER = ""
-export DATABASE_PASSWORD = ""
-export DATABASE_HOST = ""
-export DATABASE_PORT = ""
+export DATABASE_ENGINE=""
+export DATABASE_NAME=""
+export DATABASE_USER=""
+export DATABASE_PASSWORD=""
+export DATABASE_HOST=""
+export DATABASE_PORT=""
 """
 DATABASES = {
     'default': {
@@ -35,7 +35,7 @@ DATABASES = {
     }
 }
 
-# export SECRET_KEY = ""
+# export SECRET_KEY=""
 SECRET_KEY = get_env_variable("%sSECRET_KEY" % PROJECT_PREFIX)
 
 ADMINS = (
