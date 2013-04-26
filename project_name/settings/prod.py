@@ -27,7 +27,7 @@ export DATABASE_PORT=""
 """
 DATABASES = {
     'default': {
-        'ENGINE': get_env_variable("DATABASE_ENGINE"),
+        'ENGINE': "django.db.backends.%s" % get_env_variable("DATABASE_ENGINE"),
         'NAME': get_env_variable("DATABASE_NAME"),
         'USER': get_env_variable("DATABASE_USER"),
         'PASSWORD': get_env_variable("DATABASE_PASSWORD"),
