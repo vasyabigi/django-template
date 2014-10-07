@@ -1,6 +1,6 @@
 ### Install:
 
-        $ django-admin.py startproject --template=https://github.com/vasyabigi/django-template/zipball/master  --extension py,md,gitignore woot
+        $ django-admin.py startproject --template=https://github.com/vasyabigi/django-template/zipball/master  --extension py,md,gitignore,example woot
 
 Where ``woot`` is the name of the project you'd like to create.
 
@@ -45,7 +45,7 @@ pip install -r reqs/dev.txt
 
 ### Configure project ###
 ```bash
-cp {{ project_name }}/settings/dev.py.example settings/dev.py
+cp {{ project_name }}/settings/dev.py.example {{ project_name }}/settings/dev.py
 vi {{ project_name }}/settings/dev.py
 ```
 
