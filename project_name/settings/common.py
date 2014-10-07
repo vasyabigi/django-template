@@ -112,7 +112,7 @@ LOGGING = {
         'default': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': join(PROJECT_PATH, 'logs', 'vasyabigi.log'),
+            'filename': join(PROJECT_PATH, 'logs', '{{ project_name }}.log'),
             'maxBytes': 1024 * 1024 * 10,
             'backupCount': 50,
             'formatter': 'standard',
@@ -137,3 +137,5 @@ LOGGING = {
         },
     }
 }
+
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
