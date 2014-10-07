@@ -8,8 +8,8 @@ Where ``woot`` is the name of the project you'd like to create.
 ### Update README.md:
 
 * Change repository link;
-* Remove everything above this sentence.
-
+* Make `git add logs/.gitdirectory public/.gitdirectory static/.gitdirectory -f`;
+* Remove everything above this sentence;
 
 {{ project_name }}
 ========================================
@@ -45,8 +45,8 @@ pip install -r reqs/dev.txt
 
 ### Configure project ###
 ```bash
-cp {{ project_name }}/settings/dev.py.example {{ project_name }}/settings/dev.py
-vi {{ project_name }}/settings/dev.py
+cp settings/dev.py.example settings/dev.py
+vi settings/dev.py
 ```
 
 ### Sync/migrate database ###

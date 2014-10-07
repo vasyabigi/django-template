@@ -9,6 +9,6 @@
 *.db
 
 # Project
-/{{ project_name }}/public/static
-/{{ project_name }}/public/media
-/{{ project_name }}/logs
+/public/static
+/public/media
+/logs

@@ -1,9 +1,6 @@
 from os.path import abspath, dirname, join
-import sys
 
 PROJECT_PATH = dirname(dirname(abspath(__file__)))
-sys.path.append(join(PROJECT_PATH, 'apps'))
-
 PUBLIC_PATH = join(PROJECT_PATH, 'public')
 
 DEBUG = False
@@ -56,9 +53,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = '{{ project_name }}.urls'
+ROOT_URLCONF = 'urls'
 
-WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 TEMPLATE_DIRS = (
     join(PROJECT_PATH, 'templates'),
@@ -88,10 +85,10 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     # Plugins:
-    'south',
+    'django_extensions',
 
     # Apps:
-    'core',
+    'apps.core',
 )
 
 
