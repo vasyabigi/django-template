@@ -1,2 +1,2 @@
-django
+Django==1.7.3
 fabric

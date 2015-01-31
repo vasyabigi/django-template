@@ -1,16 +1,15 @@
-from os.path import abspath, dirname, join
+import sys
+from os.path import dirname, join
 
-PROJECT_PATH = dirname(dirname(abspath(__file__)))
-PUBLIC_PATH = join(PROJECT_PATH, 'public')
+BASE_DIR = dirname(dirname(__file__))
+sys.path.insert(0, join(BASE_DIR, 'apps'))
 
-DEBUG = False
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
 TEMPLATE_DEBUG = True
 
-ADMINS = (
-    # ('', ''),
-)
-
-MANAGERS = ADMINS
+ALLOWED_HOSTS = []
 
 TIME_ZONE = 'UTC'
 
@@ -24,14 +23,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-MEDIA_ROOT = join(PUBLIC_PATH, 'media')
+MEDIA_ROOT = join(BASE_DIR, 'public/media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = join(PUBLIC_PATH, 'static')
+STATIC_ROOT = join(BASE_DIR, 'public/static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    join(PROJECT_PATH, 'static'),
+    join(BASE_DIR, 'static'),
 )
 
 STATICFILES_FINDERS = (
@@ -45,20 +44,20 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = '{{ project_name }}.urls'
 
-WSGI_APPLICATION = 'wsgi.application'
+WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 TEMPLATE_DIRS = (
-    join(PROJECT_PATH, 'templates'),
+    join(BASE_DIR, 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -71,24 +70,19 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
 )
 
-FIXTURE_DIRS = (
-    join(PROJECT_PATH, 'fixtures'),
-)
-
 INSTALLED_APPS = (
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.admin',
 
     # Plugins:
     'django_extensions',
 
     # Apps:
-    'apps.core',
+    'core',
 )
 
 
@@ -109,7 +103,7 @@ LOGGING = {
         'default': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': join(PROJECT_PATH, 'logs', '{{ project_name }}.log'),
+            'filename': join(BASE_DIR, 'logs', '{{ project_name }}.log'),
             'maxBytes': 1024 * 1024 * 10,
             'backupCount': 50,
             'formatter': 'standard',
@@ -134,5 +128,3 @@ LOGGING = {
         },
     }
 }
-
-TEST_RUNNER = 'django.test.runner.DiscoverRunner'

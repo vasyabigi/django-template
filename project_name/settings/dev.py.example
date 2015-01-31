@@ -6,8 +6,8 @@ DEBUG = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': normpath(join(PROJECT_PATH, 'dev.db')),
+        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3', 'oracle'
+        'NAME': normpath(join(BASE_DIR, 'dev.db')),
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
